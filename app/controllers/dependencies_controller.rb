@@ -6,9 +6,10 @@ class DependenciesController < ApplicationController
   end
 
   def create
+    stage = Stage.find(params[:stage_id])
     dependencies = params[:dependencies]
     dependencies.each do |dependency|
-      Dependency.create!(dependency)
+      stage.dependencies.create!(dependency)
     end
     head :ok
   end
