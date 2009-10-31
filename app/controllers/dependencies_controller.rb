@@ -6,10 +6,11 @@ class DependenciesController < ApplicationController
   end
 
   def create
-    @dependency = Dependency.new(params[:dependency])
-    if @dependency.save!
-      head :ok
+    dependencies = params[:dependencies]
+    dependencies.each do |dependency|
+      Dependency.create!(dependency)
     end
+    head :ok
   end
 
 end
