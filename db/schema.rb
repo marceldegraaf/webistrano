@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090319185505) do
+ActiveRecord::Schema.define(:version => 20091031121658) do
 
   create_table "configuration_parameters", :force => true do |t|
     t.string   "name"
@@ -20,6 +20,18 @@ ActiveRecord::Schema.define(:version => 20090319185505) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "prompt_on_deploy", :default => 0
+  end
+
+  create_table "dependencies", :force => true do |t|
+    t.string   "name"
+    t.string   "current_version"
+    t.string   "available_version"
+    t.string   "source"
+    t.string   "lib"
+    t.string   "requirement"
+    t.integer  "stage_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "deployments", :force => true do |t|

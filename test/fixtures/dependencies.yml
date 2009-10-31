@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  current_version: MyString
+  available_version: MyString
+  source: MyString
+  lib: MyString
+  requirement: MyString
+  stage_id: 1
+
+two:
+  name: MyString
+  current_version: MyString
+  available_version: MyString
+  source: MyString
+  lib: MyString
+  requirement: MyString
+  stage_id: 1

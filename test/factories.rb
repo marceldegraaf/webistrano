@@ -223,6 +223,18 @@ module Factories
   
     return u
   end
+
+  def create_dependency_for_stage(stage)
+    d = Dependency.create!(
+      :stage_id => stage.id,
+      :name => 'john_doe-foobar',
+      :lib => 'foobar',
+      :current_version => '1.0.0',
+      :available_version => '1.5.0',
+      :source => 'http://gems.github.com'
+    )
+    d
+  end
   
   def create_stage_with_role
     stage = create_new_stage

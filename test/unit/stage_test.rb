@@ -237,5 +237,11 @@ class StageTest < Test::Unit::TestCase
       stage_1.lock_with(deployment_2)
     end
   end
+
+  def test_dependencies_belong_to_stage
+    stage = create_stage_with_role
+    dependency = create_dependency_for_stage(stage)
+    assert_equal stage.dependencies, [dependency]
+  end
   
 end
