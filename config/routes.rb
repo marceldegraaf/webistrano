@@ -23,6 +23,7 @@ ActionController::Routing::Routes.draw do |map|
     projects.resources :project_configurations
     
     projects.resources :stages, :member => {:capfile => :get, :recipes => :any, :tasks => :get} do |stages|
+      stages.resources :dependencies
       stages.resources :stage_configurations
       stages.resources :roles
       stages.resources :deployments, :collection => {:latest => :get}, :member => {:cancel => :post}
