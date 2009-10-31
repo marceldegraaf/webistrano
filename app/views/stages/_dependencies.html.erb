@@ -1,0 +1,21 @@
+<% if @stage.dependencies.empty? %>
+  <p>
+    No known dependencies for this stage. Dependencies can be automatically resolved with the &quot;deproll&quot; recipe.
+  </p>
+<% else %>
+  <table class="sortable">
+    <tr>
+      <th width="33%">Name</th>
+      <th width="33%">Vendored version</th>
+      <th width="33%">Available version</th>
+    </tr>
+  <% for dependency in @stage.dependencies %>
+    <tr class="<%= cycle :even, :odd, :name => 'roles' %>">
+      <% klass = (dependency.updateable? ? 'updateable_dependency' : '') %>
+      <td><%=h dependency.name %></td>
+      <td><%=h dependency.current_version %></td>
+      <td class="<%= klass %>"><%=h dependency.available_version %></td>
+    </tr>
+  <% end %>
+  </table>
+<% end %>
